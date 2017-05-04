@@ -5,15 +5,17 @@ package hello.model;
  */
 public class Person {
     @Entity
-    @Table(name="PersonAll")
+    @Table(name="person")
     public class Person {
         @Id
         @GeneratedValue(strategy= GenerationType.AUTO)
         private Integer id;
 
-        @Column(name="person")
-        private String n_person;
-        private String fio;
+        @Column(name="n_person")
+        private int n_person;
+        private String name;
+        private String surname;
+        private String patronymic;
         private String gender;
         private String date_of_birth;
 
@@ -28,28 +30,47 @@ public class Person {
             this.id = id;
         }
 
-        public String getTypename() {
-            return typename;
+        public int getN_person() {
+            return n_person;
         }
 
-        public void setTypename(String typename) {
-            this.typename = typename;
+        public void setN_person(int n_person) {
+            this.n_person = n_person;
         }
 
-        public String getPicture() {
-            return picture;
+        public String getName() {
+            return name;
+        }
+        public void setName(String name) {
+            this.name = name;
         }
 
-        public void setPicture(String picture) {
-            this.picture = picture;
+        public String getSurname() {
+            return surname;
+        }
+        public void setSurname(String surname) {
+            this.surname = surname;
         }
 
-        public float getRadius() {
-            return radius;
+        public String getPatronymic() {
+            return patronymic;
+        }
+        public void setPatronymic(String patronymic) {
+            this.patronymic = patronymic;
         }
 
-        public void setRadius(float radius) {
-            this.radius = radius;
+        public String getGender() {
+            return gender;
+        }
+        public void setGender(String gender) {
+            this.gender = gender;
+        }
+
+        public String getDate_of_birth() {
+            return date_of_birth;
+        }
+        public void setDate_of_birth(String patronymic) {
+            this.date_of_birth = date_of_birth;
         }
     }
 }
