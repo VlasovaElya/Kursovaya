@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handing Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Doctor</h1>
+<form action="#" th:action="@{/demo1/doctor}" th:object="${doctor}" method="post">
+    <p>ID: <input type="text" th:field="*{n_doctor}" /></p>
+    <p>Scientific degree <input type="text" th:field="*{scientific_degree}" /></p>
+    <p>Academic title <input type="text" th:field="*{academic_title}" /></p>
+    <p>Specialty branch <input type="text" th:field="*{specialty_branch}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="Reset" value="Reset" /></p>
+</form>
+</body>
+</html>

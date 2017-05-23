@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handing Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h1>Result3</h1>
+<p th:text="'n_sick: ' + ${sick.n_sick}" />
+<p th:text="'severity_of_the_condition: ' + ${sick.severity_of_the_condition}" />
+<p th:text="'date_available: ' + ${sick.date_available}" />
+<p th:text="'statement_date: ' + ${sick.statement_date}" />
+<p th:text="'diagnosis: ' + ${sick.diagnosis}" />
+<a href="/demo2/sick">Submit another message</a>
+</body>
+</html>

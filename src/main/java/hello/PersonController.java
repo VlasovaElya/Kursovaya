@@ -8,6 +8,8 @@ import hello.model.Person;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 /**
  * Created by elvir_000 on 17.05.2017.
  */
@@ -26,7 +28,12 @@ public class PersonController {
 
     @RequestMapping("/add")
     public @ResponseBody
-    String addNewUser(@RequestParam  String name, @RequestParam String surname, @RequestParam String patronymic, @RequestParam String gender, @RequestParam float date_of_birth) {
+    String addNewUser(@RequestParam (value = "name", required = true)  String name,
+                      @RequestParam (value = "surname", required = true) String surname,
+                      @RequestParam (value = "patronymic", required = true) String patronymic,
+                      @RequestParam (value = "gender", required = true) String gender,
+                      @RequestParam  (value = "date_of_birth", required = true)Date date_of_birth,
+                      Model model) {
         Person n = new Person();
         n.setName(name);
         n.setSurname(surname);
@@ -43,9 +50,11 @@ public class PersonController {
     }
     @RequestMapping(value="/person", method= RequestMethod.GET)
     public String personForm(Model model) {
-        model.addAttribute("person", new Person());
+        Person p = new Person();
+        model.addAttribute("person", p);
         return "person";
     }
+
 
     @RequestMapping(value="/person", method=RequestMethod.POST)
     public String personSubmit(@ModelAttribute Person n, Model model) {

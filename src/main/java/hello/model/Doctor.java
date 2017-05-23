@@ -3,10 +3,11 @@ package hello.model;
 /**
  * Created by elvir_000 on 17.05.2017.
  */
-import hello.model.Person;
+
 
 import javax.persistence.*;
 import java.util.Date;
+import hello.model.Person;
 
 
 @Entity
@@ -14,18 +15,22 @@ import java.util.Date;
 public class Doctor {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
+    private Integer n_doctor;
     private String scientific_degree;
     private String academic_title;
-    private int n_person;
     private String specialty_branch;
 
     @ManyToOne
-    private Doctor id ;
+    private Person id;
 
 
+    public Integer getN_doctor() {
+        return n_doctor;
+    }
 
-
-
+    public void setN_doctor(String scientific_degree) {
+        this.n_doctor = n_doctor;
+    }
     public String getScientific_degree() {
         return scientific_degree;
     }
@@ -42,13 +47,6 @@ public class Doctor {
         this.academic_title = academic_title;
     }
 
-    public int getN_person() {
-        return n_person;
-    }
-
-    public void setN_person(int n_person) {
-        this.n_person = n_person;
-    }
 
     public String getSpecialty_branch() {
         return specialty_branch;
@@ -58,14 +56,11 @@ public class Doctor {
         this.specialty_branch = specialty_branch;
     }
 
-    public Doctor getId() {
-        return id;
-    }
-
-    public void setId(Doctor id) {
-        this.id = id;
-    }
 
 
 
-   }
+
+
+
+
+      }

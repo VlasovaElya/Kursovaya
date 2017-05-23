@@ -1,8 +1,9 @@
 package hello.model;
-import sun.awt.image.SunWritableRaster;
-import sun.util.calendar.LocalGregorianCalendar;
 
 import javax.persistence.*;
+import java.util.Date;
+import static javax.persistence.GenerationType.*;
+
 /**
  * Created by elvir_000 on 03.05.2017.
  */
@@ -10,29 +11,24 @@ import javax.persistence.*;
 @Entity
 @Table(name = "personAll")
 public class Person {
-
-
-
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer n_person;
-
+    @GeneratedValue(strategy = AUTO)
+    private Integer id;
     @Column(name = "person")
     private String name;
     private String surname;
     private String patronymic;
     private String gender;
-    private float date_of_birth;
+    private Date date_of_birth;
 
 
 
-    public int getN_person() {
-        return n_person;
+    public Integer getId() {
+        return id;
     }
 
-    public void setN_person(int n_person) {
-        this.n_person = n_person;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -67,11 +63,11 @@ public class Person {
         this.gender = gender;
     }
 
-    public float getDate_of_birth() {
+    public Date getDate_of_birth() {
         return date_of_birth;
     }
 
-    public void setDate_of_birth(Float date_of_birth) {
+    public void setDate_of_birth(Date date_of_birth) {
         this.date_of_birth = date_of_birth;
     }
 }

@@ -19,31 +19,33 @@ import hello.DoctorRepository;
  * Created by Анютка on 13.05.2017.
  */
 @Controller
-@RequestMapping("/demo")
+@RequestMapping("/demo1")
 public class DoctorController {
     @Autowired
     private DoctorRepository doctorRepository;
 
-    @RequestMapping("/list")
+    @RequestMapping("/list1")
     public String doctor (Model model) {
         model.addAttribute("doctor", doctorRepository.findAll());
         return "doctor";
     }
 
-    @RequestMapping("/add")
+    @RequestMapping("/add1")
     public
     @ResponseBody
-    String add(@RequestParam  String scientific_degree, @RequestParam String academic_title, @RequestParam int n_person, @RequestParam String specialty_branch) {
+    String add(
+            @RequestParam (value = "scientific_degree", required = true)  String scientific_degree,
+               @RequestParam (value = "academic_title", required = true) String academic_title,
+               @RequestParam (value = "specialty_branch", required = true) String specialty_branch) {
         Doctor n = new Doctor();
         n.setScientific_degree(scientific_degree);
         n.setAcademic_title(academic_title);
-        n.setN_person(n_person);
         n.setSpecialty_branch(specialty_branch);
 
         doctorRepository.save(n);
         return "Saved";
     }
-    @RequestMapping("/all")
+    @RequestMapping("/all1")
     public @ResponseBody Iterable<Doctor> getAllDoctor() {
 
         return doctorRepository.findAll();
@@ -58,7 +60,7 @@ public class DoctorController {
     public String greetingSubmit(@ModelAttribute Doctor n, Model model) {
         doctorRepository.save(n);
         model.addAttribute("doctor", n);
-        return "result";
+        return "result2";
     }
 
 }
