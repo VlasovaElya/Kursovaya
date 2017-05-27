@@ -27,10 +27,10 @@ public class Doctor {
     public Integer getN_doctor() {
         return n_doctor;
     }
-
-    public void setN_doctor(String scientific_degree) {
+    public void setN_doctor(Integer n_doctor) {
         this.n_doctor = n_doctor;
     }
+
     public String getScientific_degree() {
         return scientific_degree;
     }
